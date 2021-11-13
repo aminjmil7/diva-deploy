@@ -1,0 +1,31 @@
+<div>
+    <h2>User List</h2>
+
+    <div>
+        <table>
+            <thead>
+                <th>id</th>
+                <th>full_name</th>
+                <th>phone_number</th>
+                <th>type</th>
+                <th>photo </th>
+                <th>succesfull_calls</th>
+                <th>total_time</th>
+                <th>balance</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of this.userList">
+                    <td> {{user.id}} </td>
+                    <td [routerLink]="[user.id+'/userdetails']"> {{user.full_name}} </td>
+                    <td> {{user.phone_number}} </td>
+                    <td> {{user.type}} </td>
+                    <td> {{user.photo}} </td>
+                    <td> {{user.succesfull_calls}} </td>
+                    <td> {{user.total_time}} </td>
+                    <td> {{user.balance}} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

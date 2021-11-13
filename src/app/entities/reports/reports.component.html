@@ -1,0 +1,36 @@
+<div>
+    <h2>Reports</h2>
+
+    <div>
+        <table>
+            <thead>
+                <th>Id</th>
+                <th>sender</th>
+                <th>caller_id</th>
+                <th>caller FullName</th>
+                <th>listener id</th>
+                <th>listener FullName</th>
+                <th>comment</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let report of ReportsList">
+                    <td>{{ report?.id }}</td>
+                    <td>{{ report?.sender }}</td>
+                    <td [routerLink]="['/user/' + report?.conversation?.caller_id + '/userdetails']">
+                        {{ report?.conversation?.caller_id }}
+                    </td>
+                    <td [routerLink]="['/user/' + report?.conversation?.caller_id + '/userdetails']">
+                        {{ report?.conversation?.caller?.full_name }}
+                    </td>
+                    <td [routerLink]="['/user/' + report?.conversation?.listener_id + '/userdetails']">
+                        {{ report?.conversation?.listener_id }}
+                    </td>
+                    <td [routerLink]="['/user/' + report?.conversation?.listener_id + '/userdetails']">
+                        {{ report?.conversation?.listener?.full_name }}
+                    </td>
+                    <td>{{ report?.comment }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

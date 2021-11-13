@@ -1,0 +1,51 @@
+<div>
+    <h2>Call history</h2>
+
+    <div class="dropdown" style="display: block; margin: auto; width: 30%">
+        <div>
+            <input type="text" autocomplete="off" placeholder="Search.." id="myInput" [(ngModel)]="inputFilter"
+                (input)="filterFunction($event)" (focus)="filterFocus=true" (focusout)="filterFocus = false" />
+            <div class="dropdown-content" [ngClass]="{'hide': !filterFocus}">
+                <span (mousedown)="selectUser({})"> </span>
+                <span *ngFor="let user of filterusersList" (mousedown)="selectUser(user)">
+                    {{ user.full_name }} {{ user.phone_number }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <table>
+            <thead>
+                <th>Id</th>
+                <th>caller Id</th>
+                <th>caller FullName</th>
+                <th>listener Id</th>
+                <th>listener FullName</th>
+                <th>startedAt</th>
+                <th>duration</th>
+                <th>status</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let callHistory of filtercallHistoryList">
+                    <td>{{ callHistory.id }}</td>
+                    <td [routerLink]="['/user/' + callHistory.caller.id + '/userdetails']">
+                        {{ callHistory.caller.id }}
+                    </td>
+                    <td [routerLink]="['/user/' + callHistory.caller.id + '/userdetails']">
+                        {{ callHistory.caller.full_name }}
+                    </td>
+                    <td [routerLink]="['/user/' + callHistory.listener.id + '/userdetails']">
+                        {{ callHistory.listener.id }}
+                    </td>
+                    <td [routerLink]="['/user/' + callHistory.listener.id + '/userdetails']">
+                        {{ callHistory.listener.full_name }}
+                    </td>
+                    <td>{{ callHistory.started_at | date: "medium" }}</td>
+                    <td>{{ callHistory.duration }}</td>
+                    <td>{{ callHistory.status }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

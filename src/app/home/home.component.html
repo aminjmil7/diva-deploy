@@ -1,0 +1,15 @@
+<div class="toolbar" role="banner">
+    <button style="background-color: #d94747; color: aliceblue;"
+        (click)="logout()"> Logout </button>
+</div>
+<div class="main">
+    <div class="sidebar">
+        <button routerLink="/user">User list</button>
+        <button routerLink="/callhistory">Call history</button>
+        <button routerLink="/reports">Reports</button>
+        <button routerLink="/statistics">statistics</button>
+    </div>
+    <div class="wrapper">
+        <router-outlet></router-outlet>
+    </div>
+</div>

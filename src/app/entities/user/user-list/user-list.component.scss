@@ -1,0 +1,32 @@
+table {
+  border-right-color: #ffffff;
+  margin-top: 30px;
+  font-size: 18px;
+  /* /* border: 1px solid #343a40; */
+  border-collapse: collapse;
+}
+
+th,
+td {
+  /* border: 1px solid #343a40; */
+  padding: 16px 24px;
+  text-align: left;
+}
+
+th {
+  background-color: #087f5b;
+  color: #fff;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #e9ecef;
+}
+
+td {
+  max-width: 300px;
+  word-wrap: break-word;
+}

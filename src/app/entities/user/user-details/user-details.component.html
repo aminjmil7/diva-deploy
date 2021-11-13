@@ -1,0 +1,91 @@
+<div>
+    <div>
+        <span> id: {{ currentUser?.id }} </span>
+        <span> full_name: {{ currentUser?.full_name }} </span>
+        <span> phone_number: {{ currentUser?.phone_number }} </span>
+        <span> type: {{ currentUser?.type }} </span>
+        <span> succesfull_calls: {{ currentUser?.succesfull_calls }} </span>
+        <span> total_time: {{ currentUser?.total_time }} </span>
+        <span> balance: {{ currentUser?.balance }} </span>
+        <span> rating: {{ currentUser?.rating }} </span>
+        <span> email: {{ currentUser?.email }} </span>
+        <span> date_of_birth: {{ currentUser?.date_of_birth }} </span>
+        <span> gender: {{ currentUser?.gender }} </span>
+        <span> bio: {{ currentUser?.bio }} </span>
+        <span> created_at: {{ currentUser?.created_at | date :'medium' }} </span>
+        <span> profile_url: {{ currentUser?.profile_url }} </span>
+        <span> language: {{ currentUser?.language }} </span>
+        <span> last_activity_date: {{ currentUser?.last_activity_date }} </span>
+    </div>
+
+    <div>
+        <img [src]="currentUser?.photo" alt="User picture">
+    </div>
+</div>
+<hr>
+<div>
+    <table *ngIf="currentUser?.conversations_as_listener">
+        <thead>
+            <th>id</th>
+            <th>caller_id</th>
+            <th>listener_id</th>
+            <th>started_at</th>
+            <th>finished_at</th>
+            <th>duration</th>
+            <th>status</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let convListener of currentUser?.conversations_as_listener">
+                <td> {{convListener?.id}} </td>
+                <td> {{convListener?.caller_id}} </td>
+                <td> {{convListener?.listener_id}} </td>
+                <td> {{convListener?.started_at | date :'medium' }} </td>
+                <td> {{convListener?.finished_at | date :'medium' }} </td>
+                <td> {{convListener?.duration}} </td>
+                <td> {{convListener?.status}} </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table *ngIf="currentUser?.conversations_as_caller">
+        <thead>
+            <th>id</th>
+            <th>caller_id</th>
+            <th>listener_id</th>
+            <th>started_at</th>
+            <th>finished_at</th>
+            <th>duration</th>
+            <th>status</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let convCaller of currentUser?.conversations_as_caller">
+                <td> {{convCaller?.id}} </td>
+                <td> {{convCaller?.caller_id}} </td>
+                <td> {{convCaller?.listener_id}} </td>
+                <td> {{convCaller?.started_at | date :'medium' }} </td>
+                <td> {{convCaller?.finished_at | date :'medium' }} </td>
+                <td> {{convCaller?.duration}} </td>
+                <td> {{convCaller?.status}} </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table *ngIf="currentUser?.transactions">
+        <thead>
+            <th>id</th>
+            <th>amount</th>
+            <th>type</th>
+            <th>minutes</th>
+            <th>created_at</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of currentUser?.transactions">
+                <td> {{transaction?.id}} </td>
+                <td> {{transaction?.amount}} </td>
+                <td> {{transaction?.type}} </td>
+                <td> {{transaction?.minutes}} </td>
+                <td> {{transaction?.created_at | date :'medium' }} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
